@@ -1,0 +1,2 @@
+# craft
+Microservices example project
