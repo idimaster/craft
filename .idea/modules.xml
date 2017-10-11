@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/craft.iml" filepath="$PROJECT_DIR$/.idea/modules/craft.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/craft_main.iml" filepath="$PROJECT_DIR$/.idea/modules/craft_main.iml" group="craft" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/craft_test.iml" filepath="$PROJECT_DIR$/.idea/modules/craft_test.iml" group="craft" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/employee/employee.iml" filepath="$PROJECT_DIR$/.idea/modules/employee/employee.iml" group="employee" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/employee/employee_main.iml" filepath="$PROJECT_DIR$/.idea/modules/employee/employee_main.iml" group="employee" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/employee/employee_test.iml" filepath="$PROJECT_DIR$/.idea/modules/employee/employee_test.iml" group="employee" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/employer/employer.iml" filepath="$PROJECT_DIR$/.idea/modules/employer/employer.iml" group="employer" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/employer/employer_main.iml" filepath="$PROJECT_DIR$/.idea/modules/employer/employer_main.iml" group="employer" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/employer/employer_test.iml" filepath="$PROJECT_DIR$/.idea/modules/employer/employer_test.iml" group="employer" />
+    </modules>
+  </component>
+</project>

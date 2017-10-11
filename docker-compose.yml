@@ -1,0 +1,78 @@
+version: '2'
+services:
+  zookeeper:
+    image: wurstmeister/zookeeper
+    ports:
+      - "2181:2181"
+    expose:
+      - "2181"
+    restart: always
+
+  cassandra:
+    image: cassandra
+    ports:
+      - "9042:9042"
+      - "9160:9160"
+    expose:
+      - "9042"
+      - "9160"
+
+  cassandra_n:
+    image: cassandra
+    expose:
+      - "9042"
+      - "9160"
+    links:
+      - cassandra
+
+  kafka:
+    image: wurstmeister/kafka
+    ports:
+      - "9092:9092"
+    expose:
+      - "9092"
+    links:
+      - zookeeper
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: kafka
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  employer:
+    build: employer/build/docker
+    expose:
+      - "8080"
+    links:
+      - cassandra
+      - kafka
+
+  ha_employer:
+    image: dockercloud/haproxy
+    links:
+      - employer
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - "8080:80"
+      - "1936:1936"
+    restart: always
+
+  employee:
+    build: employee/build/docker
+    expose:
+      - "8081"
+    links:
+      - cassandra
+      - kafka
+
+  ha_employee:
+    image: dockercloud/haproxy
+    links:
+      - employee
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - "8081:80"
+      - "1937:1936"
+    restart: always
